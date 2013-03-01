@@ -1,5 +1,4 @@
+var log = console.log.bind(console);
 for (var i = 0; i < 5; i++) {
-  setTimeout(function(i) {
-    console.log(i);
-  }, 500, i);
+  setTimeout(log, 500, i);
 }
