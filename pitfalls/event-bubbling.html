@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Bubbling Demo</title>
+
+    <style>
+      div {
+        padding: 20px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+      <input type="button" value="Hit Me!">
+    </div>
+
+    <script>
+      var useCapture = false;
+
+      var button = document.getElementsByTagName("input")[0];
+      button.addEventListener("click", function(e) {
+        console.log("Button Click Event: ", e);
+        console.log('this: ', this);
+        console.log('e.target: ', e.target);
+        // e.stopPropagation();
+      }, useCapture);
+
+      var div = document.getElementsByTagName("div")[0];
+      div.addEventListener("click", function(e) {
+        console.log("Div Click Event: ", e);
+        console.log('this: ', this);
+        console.log('e.target: ', e.target);
+      }, useCapture);
+
+      document.body.addEventListener("click", function(e) {
+        console.log("Body Click Event: ", e);
+        console.log('this: ', this);
+        console.log('e.target: ', e.target);
+      }, useCapture);
+    </script>
+  </body>
+</html>
