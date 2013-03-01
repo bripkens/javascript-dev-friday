@@ -4,6 +4,12 @@ console.log('My fancy variable: ', 42)
 
 if (false) throw new Error("false is true?");
 
+for (var i = 0; i < 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 500);
+}
+
 function complicated(a, b, c, d) {
   console.log("I am too complicated: ", a, b, c, d);
 
